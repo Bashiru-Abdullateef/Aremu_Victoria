@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(red,blue,green);">
+    <label for="">Colums</label>
+    <input type="number" placeholder="Enter any number" id="colNumber" >
+    <label for="">Row</label>
+
+    <input type="number" placeholder="Enter any number" id="rowNumber">
+    <label for="">Evaluation</label>
+    <select name="" id="selectEval">
+        <option value="">
+            choose any operation of your choice
+        </option>
+    <option value="*">
+        MUlTIPLICATION
+    </option>
+    <option value="+">
+        ADDITION
+    </option>
+    <option value="-">
+        SUBSTRATION
+    </option>
+    <option value="/">
+        DIVISION
+    </option>
+</select>
+<button id="Button" onclick="displayResult()" style="background-color: blue;">
+    make a Table
+</button>
+
+<div>
+    <table id="dispDiv"></table>
+    </div>
+
+
+<script>
+    var tabRow = rowNumber.value;
+    var tabColumn =  colNumber.value;
+
+    function displayResult(){
+        var sign = selectEval.value
+    var table = "<table>"
+
+        for (i = 1; i <= Number(rowNumber.value); i++){
+            table += "<td style = 'padding:20px';>"
+            for (j = 1; j <=Number(colNumber.value); j++){
+                var calcValue = (eval(i + sign + j))
+
+                if (calcValue % 1  !==0 ) {
+                var calcValue = Number(eval(i + sign + j)).toFixed(2)
+                }
+
+                table+= i + sign + j+ "=" + calcValue + "<br>" + "<br>";
+            }
+            dispDiv.innerHTML = table
+        }
+    }
+</script>
+</body>
+</html>
